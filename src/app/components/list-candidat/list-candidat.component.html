@@ -1,0 +1,166 @@
+<p-dialog [(visible)]="ViewCandidat" [modal]="true" [style]="{width: '1500px'}">
+    <div class="grid" >
+        <div class="col-12">
+            <div class="card">
+                <p-toolbar styleClass="p-mb-4">
+                    <ng-template pTemplate="left">
+                        <h5>List Candidat</h5>
+                    </ng-template>
+                    <ng-template pTemplate="right">
+                        <button pButton  label="New Candidat" (click)="addCandidat()" icon="pi pi-plus" class="p-button-success" ></button>
+                    </ng-template>
+                </p-toolbar>
+                <p-table #dt1  [paginator]="true" styleClass="p-datatable-gridlines"
+                         [rowHover]="true" [globalFilterFields]="['nomCandidat','prenomCandidat','emailCandidat','telephone','commentaire1']"
+                         [rows]="6"  dataKey="id">
+                    <ng-template pTemplate="caption">
+                        <div class="flex justify-content-between flex-column sm:flex-row">
+                            <button pButton label="Clear" style="width: 20%" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                            <span class="p-input-icon-left mb-2">
+							<i class="pi pi-search"></i>
+							<input pInputText type="text"  #filter (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search Keyword" class="w-full"/>
+						</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    FirstName
+                                    <p-columnFilter type="text" field="nomCandidat" display="menu" placeholder="Search by name"></p-columnFilter>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    LastName
+                                    <p-columnFilter type="text" field="prenomCandidat" display="menu" placeholder="Search by positive Value"></p-columnFilter>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    Email
+                                    <p-columnFilter type="text" field="emailCandidat" display="menu" placeholder="Search by nagative Value"></p-columnFilter>
+                                </div>
+                            </th>
+
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    Phone Number
+                                    <p-columnFilter type="numeric" field="telephone" display="menu" ></p-columnFilter>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    Comment
+                                    <p-columnFilter type="numeric" field="commentaire1" display="menu" ></p-columnFilter>
+                                </div>
+                            </th>
+                            <th>View Response</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" >
+                        <tr>
+                            <td style="min-width: 12rem;">
+                                sdcsdc
+                            </td>
+
+                            <td style="min-width: 10rem;">
+                                sxas
+                            </td>
+                            <td style="min-width: 10rem;">
+                                sdxcs
+                            </td>
+                            <td style="min-width: 10rem;">
+                                asxs
+                            </td>
+                            <td style="min-width: 10rem;">
+                                xsxs
+                            </td>
+                            <td>
+                                <button (click)="openCandidatRes()" class="p-button-rounded p-button-info p-mr-2" icon="pi pi-list" pButton
+                                        pRipple></button>
+                            </td>
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="summary">
+                        <div class="p-d-flex p-ai-center p-jc-between">
+                            cnwedweu
+<!--                            In total there are {{CandidatList ? CandidatList.length : 0 }} items.-->
+                        </div>
+                    </ng-template>
+                </p-table>
+            </div>
+            <app-new-candidat></app-new-candidat>
+
+        </div>
+    </div>
+</p-dialog>
+
+
+
+<p-dialog [(visible)]="createDialogCandidatResp" [modal]="true" [style]="{width: '800px'}">
+    <div class="grid" >
+        <div class="col-12">
+            <div class="card">
+                <p-toolbar styleClass="p-mb-4">
+                    <ng-template pTemplate="left">
+                        <h5>Resopnse Critere Candidat</h5>
+                    </ng-template>
+
+                </p-toolbar>
+<!--                [value]="ListcriterResCandidat" [(selection)]="ArraycriterResCandidat"-->
+                <p-table #dt1  [paginator]="true" styleClass="p-datatable-gridlines"
+                         [rowHover]="true" [globalFilterFields]="['response','docView.nomCritere']"
+                         [rows]="6" dataKey="id">
+                    <ng-template pTemplate="caption">
+                        <div class="flex justify-content-between flex-column sm:flex-row">
+                            <button pButton label="Clear" style="width: 20%" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                            <span class="p-input-icon-left mb-2">
+							<i class="pi pi-search"></i>
+							<input pInputText type="text"  #filter (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search Keyword" class="w-full"/>
+						</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    response
+                                    <p-columnFilter type="text" field="response" display="menu" placeholder="Search by name"></p-columnFilter>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="flex justify-content-between align-items-center">
+                                    Critere
+                                    <p-columnFilter type="text" field="critere.nomCritere" display="menu" placeholder="Search by positive Value"></p-columnFilter>
+                                </div>
+                            </th>
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body">
+                        <tr>
+                            <td style="min-width: 12rem;">
+mxsdkxms                            </td>
+
+                            <td style="min-width: 10rem;">
+                                dxndjxw
+                            </td>
+
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="summary">
+                        <div class="p-d-flex p-ai-center p-jc-between">
+<!--                            In total there are {{ListcriterResCandidat ? ListcriterResCandidat.length : 0 }} items.-->
+                        </div>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+
+
+

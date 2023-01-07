@@ -1,0 +1,29 @@
+<div class="layout-topbar" *ngIf="this.User.username ==null" style="background-color: #f4511e" >
+
+        <div  style="top:92%;margin-left: 80%;background-color: #f4511e;">
+
+
+                <button style="float:right" (click)="router.navigate(['/pages/login'])" pButton pRipple label="Login" class="p-button-rounded border-none ml-5 font-light line-height-2 bg-blue-500 text-white"></button>
+                <button style="float:right" (click)="router.navigate(['/pages/register'])" pButton pRipple label="Register" class="p-button-rounded border-none ml-5 font-light line-height-2 bg-blue-500 text-white"></button>
+
+        </div>
+</div>
+<div class="layout-topbar" *ngIf="this.User.username !=null" style="background-color: #f4511e">
+    <a class="flex align-items-center" href="#">
+<!--        <img src="assets/layout/images/omni.jpg"  height="50" class="mr-0 lg:mr-2"><span class="text-900 font-medium text-2xl line-height-3 mr-8"></span>-->
+    </a>
+    <a pRipple class="cursor-pointer block lg:hidden text-700" pStyleClass="@next" enterClass="hidden" leaveToClass="hidden" [hideOnOutsideClick]="true">
+        <i class="pi pi-bars text-4xl"></i>
+    </a>
+    <a class="p-link layout-menu-button layout-topbar-button" (click)="appMain.toggleMenu($event)">
+        <i class="pi pi-bars"></i>
+    </a>
+    <div class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active':appMain.topMenuActive}">
+    <a  style="height: 52px;" >
+        <button icon="pi pi-fw pi-sign-out" id="button" pButton class="p-button-raised
+                                     p-button-secondary p-button-rounded"
+                (click)="logOut();" type="button" label="Log Out">
+        </button>
+    </a>
+    </div>
+</div>

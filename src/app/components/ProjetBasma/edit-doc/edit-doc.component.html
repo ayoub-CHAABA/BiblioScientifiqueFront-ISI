@@ -1,0 +1,68 @@
+<p-dialog [(visible)]="editDialogCampagne" [modal]="true" [style]="{width: '600px'}" header="New Offre"
+          styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+
+        <div class="field">
+            <label for="nom"> Type de document </label>
+            <select id="nom" name="nom" class="form-control" [(ngModel)]="this.DocumentEdite.typeDoc">
+                <option [ngValue]="this.DocumentEdite.typeDoc" hidden selected="selected" > {{this.DocumentEdite.typeDoc}}</option>
+                <option value="L'article de recherche">L'article de recherche</option>
+                <option value="L'article de synthèse">L'article de synthèse</option>
+                <option value="La note de recherche">La note de recherche</option>
+                <option value="La lettre à l'éditeur">La lettre à l'éditeur</option>
+                <option value="La revue systématique">La revue systématique</option>
+                <option value="La méta-analyse">La méta-analyse</option>
+                <option value="Le cas clinique">Le cas clinique</option>
+            </select>
+        </div>
+        <div class="field">
+            <label >Thematique</label>
+            <!--            <small  class="p-invalid">Offre is required.</small>-->
+            <select  id="service" name="service" placeholder="Service" [(ngModel)]="this.DocumentEdite.thematique">
+                <option [ngValue]="this.DocumentEdite.thematique" hidden selected="selected" > {{this.DocumentEdite.thematique.domaine}}</option>
+                <option *ngFor="let them of ListThematique" [ngValue]="them">
+                    {{them.domaine}}
+                </option>
+            </select>
+        </div>
+
+
+        <div class="field">
+            <label for="DateD">Date document</label>
+            <input [(ngModel)]="this.DocumentEdite.dateDoc" [defaultValue]=this.Document.dateDoc autofocus id="DateD" pInputText required type="date"/>
+        </div>
+
+        <div class="field">
+            <label for="vs"> visiblite </label>
+            <select id="vs" name="nom" class="form-control" [(ngModel)]="this.DocumentEdite.visibilite"> <!--[(ngModel)]="Campagme.nomCampagne"-->
+                <option value="true">true</option>
+                <option value="false">false</option>
+
+            </select>
+        </div>
+        <div class="field">
+            <label
+                class="form-control-label"
+                for="file"
+                id="file">File</label>
+            <input
+                type="file"
+                class="form-control form-control-alternative"
+                placeholder="file"
+                accept=".pdf"
+                name="uploadDocument"
+                [defaultValue]="this.selectedFile2"
+                (change)="onFileChange($event)"></div>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" style="background-color: lavender;">
+        <button (click)="hideCreateDialog()" class="p-button-text" icon="pi pi-times" label="Cancel" pButton
+                pRipple></button>
+        <button (click)="editOffre()" class="p-button-text" icon="pi pi-check" label="Save" pButton pRipple></button>
+    </ng-template>
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</p-dialog>
+

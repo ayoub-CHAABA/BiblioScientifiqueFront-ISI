@@ -1,0 +1,68 @@
+<div class="grid" >
+    <p-toast></p-toast>
+    <div class="col-12">
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton  label="New Them" (click)="addThem()" icon="pi pi-plus" class="p-button-success" ></button>
+                </ng-template>
+
+            </p-toolbar>
+            <p-table #dt1 [(selection)]="ArrayThematique" [paginator]="true" styleClass="p-datatable-gridlines"
+                     [rowHover]="true" [globalFilterFields]="['domaine']"
+                     [rows]="6" [value]="ListThematique" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-content-between flex-column sm:flex-row">
+                        <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                        <span class="p-input-icon-left mb-2">
+							<i class="pi pi-search"></i>
+							<input pInputText type="text" #filter (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search Keyword" class="w-full"/>
+						</span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+
+                        <th>
+                            <div class="flex justify-content-between align-items-center">
+                                domaine
+                                <p-columnFilter type="text" field="domaine" display="menu" placeholder="Search by description"></p-columnFilter>
+                            </div>
+                        </th>
+
+                        <th>edite thematique</th>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-them>
+                    <tr>
+                        <td style="min-width: 12rem;">
+                            {{them.domaine}}
+                        </td>
+
+
+                        <td>
+                            <button style="float: inside" (click)="EditeThem(them)" class="p-button-rounded p-button-success p-mr-2" icon="pi pi-pencil" pButton
+                                    pRipple></button>
+                        </td>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        In total there are {{ListThematique ? ListThematique.length : 0 }}
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+        <app-ajout-doc></app-ajout-doc>
+        <app-docview></app-docview>
+        <app-edit-doc></app-edit-doc>
+        <app-addthematique></app-addthematique>
+        <app-editethematique></app-editethematique>
+
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+

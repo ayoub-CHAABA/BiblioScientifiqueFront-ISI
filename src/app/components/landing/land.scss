@@ -1,0 +1,241 @@
+:host ::ng-deep {
+  .p-dropdown {
+    width: 14rem;
+    font-weight: normal;
+  }
+
+  .product-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .product-description {
+    margin: 0 0 1rem 0;
+  }
+
+  .product-category-icon {
+    vertical-align: middle;
+    margin-right: .5rem;
+  }
+
+  .product-category {
+    font-weight: 600;
+    vertical-align: middle;
+  }
+
+  .product-list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+
+    img {
+      width: 150px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      margin-right: 2rem;
+    }
+
+    .product-list-detail {
+      flex: 1 1 0;
+    }
+
+    .p-rating {
+      margin: 0 0 .5rem 0;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+      align-self: flex-end;
+    }
+
+    .product-list-action {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p-button {
+      margin-bottom: .5rem;
+    }
+  }
+
+  .product-grid-item {
+    margin: .5em;
+    border: 1px solid #dee2e6;
+
+    .product-grid-item-top,
+    .product-grid-item-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    img {
+      width: 60%;
+      height: 130px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      margin: 2rem 0;
+    }
+
+    .product-grid-item-content {
+      text-align: center;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.product-badge {
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+
+  &.status-instock {
+    background: #C8E6C9;
+    color: #256029;
+  }
+
+  &.status-outofstock {
+    background: #FFCDD2;
+    color: #C63737;
+  }
+
+  &.status-lowstock {
+    background: #FEEDAF;
+    color: #8A5340;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  :host ::ng-deep .product-list-item {
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 75%;
+      margin: 2rem 0;
+    }
+
+    .product-list-detail {
+      text-align: center;
+
+    }
+
+    .product-price {
+      align-self: center;
+    }
+
+    .product-list-action {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-list-action {
+      margin-top: 2rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
+body, html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-image {
+    /* The image used */
+
+    /* Add the blur effect */
+
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+#hero{
+    height:900px;
+    overflow:hidden;
+}
+
+.pricing-card:hover{
+    border:2px solid var(--cyan-200) !important;
+}
+
+@media screen and (min-width: 768px) {
+    #hero{
+        -webkit-clip-path: ellipse(150% 87% at 93% 13%);
+        clip-path: ellipse(150% 87% at 93% 13%);
+        height: 530px;
+    }
+}
+
+@media screen and (min-width: 1300px){
+    #hero > img {
+        position: absolute;
+        transform:scale(1.2);
+        top:15%;
+    }
+
+    #hero > div > p {
+        max-width: 450px;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    #hero {
+        height: 600px;
+    }
+
+    #hero > img {
+        position:static;
+        transform: scale(1);
+        margin-left: auto;
+    }
+
+    #hero > div {
+        width: 100%;
+    }
+
+    #hero > div > p {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

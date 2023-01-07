@@ -1,0 +1,82 @@
+<div class="grid">
+    <p-toast></p-toast>
+    <div class="col-12">
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <h5>List User</h5>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton  label="New user" (click)="openAjoutUser()" icon="pi pi-plus" class="p-button-success" ></button>
+                </ng-template>
+            </p-toolbar>
+            <p-table #dt1 [(selection)]="userItems" [paginator]="true" styleClass="p-datatable-gridlines"
+                     [rowHover]="true" [globalFilterFields]="['nomUser','prenomUser','emailUser']"
+                     [rows]="6" [value]="userList" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-content-between flex-column sm:flex-row">
+                        <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+                        <span class="p-input-icon-left mb-2">
+							<i class="pi pi-search"></i>
+							<input pInputText type="text" #filter (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search Keyword" class="w-full"/>
+						</span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>
+                            <div class="flex justify-content-between align-items-center">
+                                Firstname
+                                <p-columnFilter type="text" field="nomUser" display="menu" placeholder="Search by name"></p-columnFilter>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="flex justify-content-between align-items-center">
+                                    LastName
+                                <p-columnFilter type="text" field="prenomUser" display="menu" placeholder="Search by description"></p-columnFilter>
+                            </div>
+                        </th>
+
+                        <th>
+                            <div class="flex justify-content-between align-items-center">
+                                Email
+                                <p-columnFilter type="text" field="emailUser" display="menu" placeholder="Search by email"></p-columnFilter>
+                            </div>
+                        </th>
+                        <th>Action</th>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <td style="min-width: 12rem;">
+                            {{user.nomUser}}
+                        </td>
+                        <td style="min-width: 10rem;">
+                            {{user.prenomUser }}
+                        </td>
+                        <td style="min-width: 10rem;">
+                            {{user.emailUser }}
+                        </td>
+                        <td>
+                            <button (click)="editUser(user)" class="p-button-rounded p-button-success p-mr-2" icon="pi pi-pencil" pButton
+                                    pRipple></button>
+                            <button (click)="delete(user)" class="p-button-rounded p-button-danger" icon="pi pi-trash"  pButton
+                                    pRipple></button>
+                        </td>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        In total there are {{userList ? userList.length : 0 }} items.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+<app-ajout-user></app-ajout-user>
+        <app-edit-user></app-edit-user>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+

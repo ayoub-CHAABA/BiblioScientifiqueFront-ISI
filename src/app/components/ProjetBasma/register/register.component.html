@@ -1,0 +1,56 @@
+<div class="surface-0 flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="grid justify-content-center p-2 lg:p-0" style="min-width:80%">
+        <div class="col-12 mt-5 xl:mt-0 text-center">
+<!--            <img src="../../../../assets/layout/images/omniL.png" class="mb-5" style="width:81px; height:81px;">-->
+        </div>
+        <div class="col-12 xl:col-6" style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, #f4511e 10%, rgba(33, 150, 243, 0) 30%);">
+            <div class="h-full w-full m-0 py-7 px-4" style="border-radius:53px; background: linear-gradient(180deg, var(--surface-50) 38.9%, var(--surface-0));">
+                <div class="text-center mb-5">
+
+                    <span class="text-600 font-medium">Sign up</span>
+                </div>
+
+                <div class="w-full md:w-10 mx-auto">
+                    <label for="firstName" class="block text-900 font-medium text-xl mb-2">Username</label>
+                    <input [(ngModel)]="addUser.username" id="firstName" placeholder="Username" pInputText class="w-full mb-3" style="padding:1rem;"/>
+
+                    <label for="LastName" class="block text-900 font-medium text-xl mb-2">Phone</label>
+                    <input [(ngModel)]="addUser.phone" id="LastName" placeholder="Phone" pInputText class="w-full mb-3" style="padding:1rem;"/>
+
+                    <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
+                    <input [(ngModel)]="addUser.email" id="email1" type="text" placeholder="Email address" pInputText class="w-full mb-3" style="padding:1rem;">
+
+                    <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label>
+                    <p-password [(ngModel)]="addUser.password" id="password1" placeholder="Password" [toggleMask]="true" styleClass="w-full mb-3"></p-password>
+                    <div class="field">
+                    <label class="block text-900 font-medium text-xl mb-2" for="service">Universite</label>
+                    <!--            <small  class="p-invalid">Offre is required.</small>-->
+                    <select [(ngModel)]="addUser.universite" class="w-full mb-3" style="padding:1rem;" id="service" name="service" placeholder="Service" [(ngModel)]="this.addUser.universite">
+                        <option *ngFor="let uni of ListUniversite" [ngValue]="uni"  >
+                            {{uni.libelle}}
+                        </option>
+                    </select>
+                    </div>
+                    <div class="field">
+                    <label class="block text-900 font-medium text-xl mb-2" for="role">Role</label>
+                    <select [(ngModel)]="addUser.role" class="w-full mb-3" style="padding:1rem;" id="role" name="service" placeholder="Service" [(ngModel)]="this.addUser.role">
+                        <option *ngFor="let role of ListRole" [ngValue]="role"  >
+                            {{role.name}}
+                        </option>
+                    </select>
+                    </div>
+                    <div class="flex align-items-center justify-content-between mb-5">
+                        <div class="flex align-items-center">
+                            <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
+                            <label for="rememberme1">Remember me</label>
+                        </div>
+                        <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a>
+                    </div>
+                    <button (click)="register()" style="background-color: #f4511e" pButton pRipple label="Sign Up" class="w-full p-3 text-xl"></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+</div>

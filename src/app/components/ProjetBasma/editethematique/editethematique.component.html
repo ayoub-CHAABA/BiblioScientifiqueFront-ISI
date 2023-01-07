@@ -1,0 +1,23 @@
+<p-dialog [(visible)]="createDialogEditeThem" [modal]="true" [style]="{width: '600px'}" header="New Offre"
+          styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+
+
+
+        <div class="field">
+            <label for="DateD">domaine</label>
+            <input [(ngModel)]="this.Thematique.domaine"  autofocus id="DateD" pInputText required type="text"/>
+        </div>
+
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" style="background-color: lavender;">
+        <button (click)="hideCreateDialog()" class="p-button-text" icon="pi pi-times" label="Cancel" pButton
+                pRipple></button>
+        <button (click)="editeDomaine()" class="p-button-text" icon="pi pi-check" label="Save" pButton pRipple></button>
+    </ng-template>
+</p-dialog>
+

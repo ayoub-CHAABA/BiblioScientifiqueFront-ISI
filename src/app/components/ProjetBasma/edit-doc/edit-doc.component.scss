@@ -1,0 +1,58 @@
+input, select, textarea {
+    outline: none;
+    appearance: unset !important;
+    -moz-appearance: unset !important;
+    -webkit-appearance: unset !important;
+    -o-appearance: unset !important;
+    -ms-appearance: unset !important;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    -o-appearance: none !important;
+    -ms-appearance: none !important;
+    margin: 0;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+}
+input:-webkit-autofill {
+    box-shadow: 0 0 0 30px white inset;
+    -moz-box-shadow: 0 0 0 30px white inset;
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -o-box-shadow: 0 0 0 30px white inset;
+    -ms-box-shadow: 0 0 0 30px white inset;
+}
+input, select {
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+    padding: 5px 0;
+    color: #222;
+    margin-bottom: 31px;
+    font-family: Georgia, Serif;
+    font-size: larger;
+}
+
+input:focus, select:focus {
+    color: #222;
+    border-bottom: 2px solid #4966b1;
+}
+select {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    font-family: Georgia, Serif;
+    color: #6c757e;
+    cursor: pointer;
+    padding-top: 0;
+}

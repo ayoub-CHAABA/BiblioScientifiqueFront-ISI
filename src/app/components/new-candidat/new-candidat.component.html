@@ -1,0 +1,45 @@
+<p-dialog [(visible)]="createDialogCandidat" [modal]="true" [style]="{width: '1000px'}" header="new Candidat"
+          styleClass="p-fluid">
+    <p-toast></p-toast>
+    <ng-template pTemplate="content">
+
+        <div class="field">
+            <label for="nom"> FirstName </label>
+            <input  autofocus id="nom" pInputText required type="text"/>
+<!--            <small *ngIf="submitted && !candidat.nomCandidat "class="p-invalid">name is required.</small>-->
+        </div>
+        <div class="field">
+            <label for="desc">LastName</label>
+            <input  autofocus id="desc" pInputTextarea required type="text"/>
+<!--            <small *ngIf="submitted && !candidat.prenomCandidat " class="p-invalid">Offre is required.</small>-->
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input  autofocus id="email" pInputText required type="email"/>
+<!--            <small *ngIf="submitted && !candidat.emailCandidat" class="p-invalid">date is required.</small>-->
+        </div>
+        <div class="field">
+            <label for="seuil">Phone Number</label>
+            <input  autofocus id="seuil" pInputText required type="text"/>
+<!--            <small *ngIf="submitted && !candidat.telephone" class="p-invalid">Seuil is required.</small>-->
+        </div>
+
+        <div class="field">
+            <label for="DateD">Add something about you</label>
+            <textarea  autofocus id="DateD" pInputTextarea required type="text"></textarea>
+<!--            <small *ngIf="submitted&& !candidat.commentaire1" class="p-invalid">date is required.</small>-->
+        </div>
+
+
+
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" style="background-color: lavender;">
+        <button (click)="hideCreateDialog()" class="p-button-text" icon="pi pi-times" label="Cancel" pButton
+                pRipple></button>
+        <button (click)="addCandidat()" class="p-button-text" icon="pi pi-check" label="Save" pButton pRipple></button>
+    </ng-template>
+</p-dialog>
+

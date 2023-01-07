@@ -1,0 +1,58 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <h5>All Document</h5>
+            <p-dataView #dv [value]="ListDocument" [paginator]="true" [rows]="9" filterBy="{{['titre','thematique.domaine','visibilite','typeDoc','statut']}}" [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+                <ng-template pTemplate="header">
+                    <div class="grid grid-nogutter flex-column md:flex-row justify-content-between">
+                        <span class="p-input-icon-left mb-2 md:mb-0">
+                            <i class="pi pi-search"></i>
+                            <input type="search" pInputText placeholder="Search by any attribute" (input)="dv.filter($event.target.value)">
+                        </span>
+                    </div>
+                </ng-template>
+
+
+
+                <ng-template let-list pTemplate="gridItem">
+                    <div class="col-12 md:col-4">
+                        <div class="card m-3 border-1 surface-border">
+                            <div class="flex align-items-center justify-content-between">
+                                <div class="flex align-items-center">
+                                    <i class="pi pi-tag mr-2"></i>
+                                    <span class="font-semibold">{{list.thematique.domaine}}</span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <pdf-viewer src='data:application/pdf;base64,{{list.file}}'
+                                            (after-load-complete)="initLoadCompleted($event)"
+                                            [render-text]="true"
+                                            [original-size]="false"
+                                            [show-all]="false"
+                                            [show-borders]="false"
+                                            [page]="1"
+                                            style="width:350px; height: 300px"
+                                            class="shadow-2"
+                                ></pdf-viewer>
+                                <div class="font-bold text-xl">{{list.titre}}</div>
+                                <div class="mb-3">{{list.typeDoc}}</div>
+                            </div>
+                            <div class="flex align-items-center justify-content-between">
+                                <button (click)="downloadFile(list)" class="p-button-rounded p-button-help p-mr-2" icon="pi pi-download" pButton
+                                        pRipple></button>
+                                <button (click)="FindCriter(list)" class="p-button-rounded p-button-info p-mr-2" icon="pi pi-list" pButton
+                                        pRipple></button>
+                            </div>
+                        </div>
+                    </div>
+                    <app-ajout-doc></app-ajout-doc>
+                    <app-docview></app-docview>
+                    <app-edit-doc></app-edit-doc>
+
+                    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+                </ng-template>
+            </p-dataView>
+        </div>
+    </div>
+
+</div>

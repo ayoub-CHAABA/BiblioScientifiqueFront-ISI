@@ -1,0 +1,45 @@
+<p-dialog [(visible)]="createDialog" [modal]="true" [style]="{width: '600px'}" header="Ajout User"
+          styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+        <div class="field">
+            <label for="nom"> FirstName </label>
+            <input  autofocus id="nom" pInputText required type="text"/>
+<!--            <small *ngIf="submitted && !userA.nomUser "class="p-invalid">name is required.</small>-->
+        </div>
+        <div class="field">
+            <label for="desc">LastName</label>
+            <textarea  autofocus id="desc" pInputTextarea required type="textarea"></textarea>
+<!--            <small *ngIf="submitted && !userA.prenomUser " class="p-invalid">Offre is required.</small>-->
+        </div>
+        <div class="field">
+            <label for="seuil">Username</label>
+            <input  autofocus id="seuil" pInputText required type="text"/>
+<!--            <small *ngIf="submitted && !userA.username" class="p-invalid">Seuil is required.</small>-->
+        </div>
+
+        <div class="field">
+            <label for="DateD">password</label>
+            <input autofocus id="DateD" pInputText required type="password"/>
+<!--            <small *ngIf="submitted&& !userA.password" class="p-invalid">date is required.</small>-->
+        </div>
+        <div class="field">
+            <label for="DateF">Email</label>
+            <input autofocus id="DateF" pInputText required type="email"/>
+<!--            <small class="p-invalid">date is required.</small>-->
+        </div>
+
+
+
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" style="background-color: lavender;">
+        <button (click)="hideCreateDialog()" class="p-button-text" icon="pi pi-times" label="Cancel" pButton
+                pRipple></button>
+        <button (click)="addUser()" class="p-button-text" icon="pi pi-check" label="Save" pButton pRipple></button>
+    </ng-template>
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+</p-dialog>
+
